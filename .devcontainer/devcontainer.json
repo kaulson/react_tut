@@ -20,5 +20,6 @@
   },
 
   "forwardPorts": [3000],
-  "postCreateCommand": "npm install -g create-react-app typescript",
+  "postCreateCommand": "npm install -g create-react-app typescript vite@4.1.0",
   "remoteUser": "node"
+}
