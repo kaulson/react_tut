@@ -1,14 +1,8 @@
-//For config options, see the README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
 {
   "name": "Node.js & TypeScript",
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
-  "features": {
-    "ghcr.io/devcontainers/features/git:1": {},
-    "ghcr.io/devcontainers/features/node:1": {
-      "version": "lts"
-    }
+  "build": {
+    "dockerfile": "Dockerfile"
   },
-
   "customizations": {
     "vscode": {
       "extensions": [
@@ -18,8 +12,7 @@
       ]
     }
   },
-
   "forwardPorts": [3000],
-  "postCreateCommand": "npm install -g create-react-app typescript vite@4.1.0",
-  "remoteUser": "node"
+  "remoteUser": "node",
+  "postCreateCommand": "npm --version"
 }
