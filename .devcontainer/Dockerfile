@@ -1,11 +1,11 @@
+# Use the official Node.js LTS image with Debian Bookworm as a parent image
 FROM node:20-bookworm
 
 # Set the working directory
-WORKDIR /workspaces/app
+WORKDIR /workspaces/react_tut
 
 # Install global packages
-RUN npm install -g npm@latest && \
-    npm install -g create-react-app@latest typescript@latest vite@4.1.0 && \
+RUN npm install -g npm@latest vite@4.1.0 && \
     npm cache clean --force
 
 # Install any OS updates and required packages
@@ -14,7 +14,7 @@ RUN apt-get update && apt-get upgrade -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Set up non-root user (update UID and GID if the 'node' user already exists)
+# Ensure the 'node' user exists with the correct UID and GID
 ARG USERNAME=node
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
