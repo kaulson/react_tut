@@ -1,8 +1,10 @@
 {
-  "name": "Node.js & TypeScript",
+  "name": "React TypeScript Development",
   "build": {
-    "dockerfile": "Dockerfile"
+    "dockerfile": "Dockerfile",
+    "context": ".."
   },
+  "workspaceFolder": "/workspaces/react_tut/react-app",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -13,7 +15,14 @@
       ]
     }
   },
-  "forwardPorts": [3000],
+  "forwardPorts": [5173],
   "remoteUser": "node",
-  "postCreateCommand": "npm --version"
+  "postCreateCommand": "npm install",
+  "postStartCommand": "npm run dev -- --host 0.0.0.0",
+  "portsAttributes": {
+    "5173": {
+      "label": "Vite Dev Server",
+      "onAutoForward": "notify"
+    }
+  }
 }

@@ -2,15 +2,15 @@
 FROM node:20-bookworm
 
 # Set the working directory
-WORKDIR /workspaces/react_tut
+WORKDIR /workspaces/react_tut/react-app
 
-# Install global packages
-RUN npm install -g npm@latest vite@4.1.0 && \
+# Install global packages and tree
+RUN npm install -g npm@latest && \
     npm cache clean --force
 
 # Install any OS updates and required packages
 RUN apt-get update && apt-get upgrade -y && \
-    apt-get install -y git sudo && \
+    apt-get install -y git sudo tree && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
